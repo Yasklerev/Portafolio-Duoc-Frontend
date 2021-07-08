@@ -1,0 +1,18 @@
+<h2>{{ data.nombres }} - {{ data.rut }}</h2>
+
+<h3>¿Está seguro de que desea eliminar este registro?</h3>
+
+<button
+  type="submit"
+  class="btn waves-effect waves-light btn-danger cancelar"
+  (click)="deleteUser()"
+>
+  Eliminar
+</button>
+<button
+  type="button"
+  class="btn waves-effect waves-light btn-info modificar"
+  (click)="cancel()"
+>
+  Cancelar
+</button>

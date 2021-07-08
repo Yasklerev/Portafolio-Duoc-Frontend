@@ -1,0 +1,56 @@
+<section id="wrapper" class="login-register login-sidebar img">
+  <div class="login-box card">
+    <h2>Solicitud de pedido</h2>
+    <div class="card-body">
+      <form
+        class="form-horizontal form-material"
+        autocomplete="off"
+        [formGroup]="form"
+        (ngSubmit)="createUser()"
+      >
+        <div class="form-group m-t-20">
+          <mat-label>Seleccionar proveedor</mat-label>
+          <br />
+          <select class="custom-select" formControlName="proveedor">
+            <option value="" disabled>Seleccionar proveedor</option>
+            <option *ngFor="let item of dataVendors" [ngValue]="item">
+              {{ item.rubro }}
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group m-t-20">
+          <mat-label>Solicitud</mat-label>
+          <textarea
+            placeholder="Escriba aquí lo que desea pedir..."
+            class="form-control text-area"
+            rows="5"
+            formControlName="solicitud"
+          ></textarea>
+        </div>
+
+        <div class="form-group m-t-20">
+          <mat-label>Comentarios</mat-label>
+          <textarea
+            placeholder="Escriba aquí sus comentarios (opcional)..."
+            class="form-control text-area"
+            rows="5"
+            formControlName="comentarios"
+          ></textarea>
+        </div>
+        <button
+          type="button"
+          class="btn waves-effect waves-light btn-danger cancelar"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="btn waves-effect waves-light btn-info modificar"
+        >
+          Solicitar
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

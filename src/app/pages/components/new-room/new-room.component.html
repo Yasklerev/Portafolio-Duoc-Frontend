@@ -1,0 +1,83 @@
+<section id="wrapper" class="login-register login-sidebar img">
+  <div class="login-box card">
+    <div class="card-body">
+      <form
+        class="form-horizontal form-material"
+        autocomplete="off"
+        [formGroup]="form"
+        (ngSubmit)="createUser()"
+      >
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="rutNoValido"
+              autocomplete="new-rut"
+              formControlName="rut"
+              class="form-control"
+              type="text"
+              placeholder="Numero habitación"
+            />
+            <small *ngIf="rutNoValido" class="message-error"> </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="nombreNoValido"
+              autocomplete="new-nombres"
+              formControlName="nombres"
+              class="form-control"
+              type="text"
+              placeholder="Descripción"
+            />
+            <small *ngIf="nombreNoValido" class="message-error">
+              5 carácteres como mínimo.
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="apellidosNoValido"
+              autocomplete="new-apellidos"
+              formControlName="apellidos"
+              class="form-control"
+              type="text"
+              placeholder="Accesorios"
+            />
+            <small *ngIf="apellidosNoValido" class="message-error">
+              5 carácteres como mínimo.
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="telefonoNoValido"
+              autocomplete="new-telefono"
+              formControlName="telefono"
+              class="form-control"
+              type="text"
+              placeholder="Observaciones"
+            />
+            <small *ngIf="apellidosNoValido" class="message-error">
+              Formato inválido.
+            </small>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn waves-effect waves-light btn-danger cancelar"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="btn waves-effect waves-light btn-info modificar"
+        >
+          Agregar
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,96 @@
+<div class="left">
+  <input
+    type="file"
+    name="file"
+    class="file-input"
+    [accept]="requiredFileType"
+    (change)="upload($event)"
+    #fileUpload
+  />
+  <h4 class="select">Seleccionar archivo</h4>
+
+  <div *ngIf="selected === 'option3'" class="form-group">
+    <mat-form-field class="select" appearance="outline">
+      <mat-label>Nombre nuevo periodo</mat-label>
+      <input autocomplete="off" matInput placeholder="Nuevo periodo" />
+    </mat-form-field>
+  </div>
+  <div class="file-upload select">
+    <button
+      class="btn btn-sm btn-primary mr-2"
+      data-toggle="modal"
+      (click)="fileUpload.click()"
+    >
+      <i class="fa fa-search"></i>
+      Buscar archivo
+    </button>
+    <button
+      class="btn btn-sm btn-primary mr-2"
+      data-toggle="modal"
+      (click)="sendUpload()"
+    >
+      <i class="fa fa-upload"></i>
+      Subir archivo
+    </button>
+    <button
+      *ngIf="archivo === true"
+      class="btn btn-sm btn-danger mr-2"
+      data-toggle="modal"
+      (click)="deleteUpload()"
+    >
+      <i class="fa fa-trash"></i>
+      Borrar selección
+    </button>
+    <br />
+    <br />
+    <p>Archivo seleccionado:</p>
+    <p *ngIf="archivo === true">
+      {{ nombreArchivo }}
+    </p>
+    <p *ngIf="archivo === false">No hay ningún archivo seleccionado.</p>
+  </div>
+  <br />
+  <div class="progress">
+    <mat-progress-bar
+      class="progress-bar"
+      mode="determinate"
+      [value]="uploadProgress"
+      *ngIf="uploadProgress"
+    >
+    </mat-progress-bar>
+  </div>
+</div>
+
+<form *ngIf="dataExcel" class="form-horizontal form-bold">
+  <div class="col-xs-12">
+    <div class="right">
+      <div class="row">
+        <div class="col-12">
+          <div class="card">
+            <div class="card-body table-size">
+              <h4>Vista previa de los datos.</h4>
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th>Rut</th>
+                    <th>Nombres</th>
+                    <th>Apellidos</th>
+                    <th>Correo</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let item of dataExcel">
+                    <td>{{ item.rut }}</td>
+                    <td>{{ item.nombres }}</td>
+                    <td>{{ item.apellidos }}</td>
+                    <td>{{ item.correo }}</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>

@@ -1,0 +1,153 @@
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<aside class="left-sidebar">
+  <!-- Sidebar scroll-->
+  <div class="scroll-sidebar">
+    <!-- Sidebar navigation-->
+    <nav class="sidebar-nav">
+      <ul id="sidebarnav">
+        <li>
+          <a
+            class="has-arrow waves-effect waves-dark"
+            aria-expanded="true"
+            (click)="asd()"
+            ><i class="mdi mdi-home"></i><span class="hide-menu">Inicio </span>
+          </a>
+          <ul aria-expanded="true" class="collapse">
+            <li><a href="/inicio">Inicio </a></li>
+            <li><a href="index2.html">Opción 2</a></li>
+            <li><a href="index3.html">Opción 3</a></li>
+            <li><a href="index4.html">Opción 4</a></li>
+          </ul>
+        </li>
+        <li *ngIf="rol === 1">
+          <a class="has-arrow waves-effect waves-dark" aria-expanded="false"
+            ><i class="mdi mdi-home"></i
+            ><span class="hide-menu">Adm. de usuarios </span>
+          </a>
+          <ul aria-expanded="false" class="collapse">
+            <li>
+              <a routerLink="/adm-usuarios" routerLinkActive="active"
+                >Usuarios del sistema
+              </a>
+            </li>
+            <li>
+              <a routerLink="/adm-clientes" routerLinkActive="active"
+                >Clientes</a
+              >
+            </li>
+            <li>
+              <a routerLink="/adm-huespedes" routerLinkActive="active"
+                >Huéspedes</a
+              >
+            </li>
+            <li>
+              <a routerLink="/adm-proveedores" routerLinkActive="active"
+                >Proveedores</a
+              >
+            </li>
+            <li>
+              <a routerLink="/adm-empleados" routerLinkActive="active"
+                >Empleados</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="rol === 2">
+          <a class="has-arrow waves-effect waves-dark" aria-expanded="false"
+            ><i class="mdi mdi-home"></i
+            ><span class="hide-menu">Servicios hostal</span>
+          </a>
+          <ul aria-expanded="false" class="collapse">
+            <li>
+              <a routerLink="/carga-usuarios" routerLinkActive="active"
+                >Carga de usuarios
+              </a>
+            </li>
+            <li>
+              <a routerLink="/servicios-cliente" routerLinkActive="active"
+                >Alojamiento y comedor</a
+              >
+            </li>
+            <li>
+              <a routerLink="/solicitudes-realizadas" routerLinkActive="active"
+                >Solicitudes realizadas</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="rol === 1 || rol === 3">
+          <a
+            class="has-arrow waves-effect waves-dark"
+            href="#"
+            aria-expanded="false"
+            ><i class="mdi mdi-newspaper"></i
+            ><span class="hide-menu">Adm. de factura</span></a
+          >
+          <ul aria-expanded="false" class="collapse">
+            <li>
+              <a routerLink="/adm-facturas" routerLinkActive="active"
+                >Administrar facturas</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="rol === 1 || rol === 3">
+          <a
+            class="has-arrow waves-effect waves-dark"
+            href="#"
+            aria-expanded="false"
+            ><i class="mdi mdi-bank"></i
+            ><span class="hide-menu">Adm. de hostal</span></a
+          >
+          <ul aria-expanded="false" class="collapse">
+            <li>
+              <a routerLink="/adm-hostel" routerLinkActive="active"
+                >Administrar hostal</a
+              >
+            </li>
+            <li>
+              <a routerLink="/adm-habitaciones" routerLinkActive="active"
+                >Adm. de habitaciones</a
+              >
+            </li>
+            <li>
+              <a routerLink="/adm-comedor" routerLinkActive="active"
+                >Adm. comedor</a
+              >
+            </li>
+            <li>
+              <a routerLink="/minuta-comedor" routerLinkActive="active"
+                >Minuta comedor</a
+              >
+            </li>
+          </ul>
+        </li>
+        <li *ngIf="rol === 1 || rol === 4 || rol === 3">
+          <a
+            class="has-arrow waves-effect waves-dark"
+            href="#"
+            aria-expanded="false"
+            ><i class="mdi mdi-file"></i
+            ><span class="hide-menu">Orden pedido</span></a
+          >
+          <ul aria-expanded="false" class="collapse">
+            <li>
+              <a routerLink="/adm-ventas" routerLinkActive="active"
+                >Administrar órdenes de pedido</a
+              >
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+    <!-- End Sidebar navigation -->
+  </div>
+  <!-- End Sidebar scroll-->
+</aside>
+<!-- ============================================================== -->
+<!-- End Left Sidebar - style you can find in sidebar.scss  -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->

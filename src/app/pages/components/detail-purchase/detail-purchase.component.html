@@ -1,0 +1,145 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">Orden pedido número: {{ dataComplete.numero }}</h4>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Comment widgets -->
+  <!-- ============================================================== -->
+  <div class="comment-widgets m-b-20">
+    <!-- Comment Row -->
+    <div class="d-flex flex-row comment-row">
+      <div class="p-2">
+        <span class="round"
+          ><img
+            src="../assets/images/avatars/avatar_1.png"
+            alt="user"
+            width="50"
+        /></span>
+      </div>
+      <div class="w-100">
+        <h5>Solicitante: {{ dataComplete.nombres }}</h5>
+        <div class="comment-footer">
+          <span class="date">Fecha de solicitud: 28/06/2021</span>
+          <br />
+          <br />
+          <h5>Estado:</h5>
+          <span
+            *ngIf="dataComplete.estado === 'Pendiente'"
+            class="label label-info"
+            >Pendiente</span
+          >
+          <span
+            *ngIf="dataComplete.estado === 'Aprobado'"
+            class="label label-success"
+            >Aprobado</span
+          >
+          <span
+            *ngIf="dataComplete.estado === 'Rechazado'"
+            class="label label-danger"
+            >Rechazado</span
+          >
+        </div>
+        <br />
+        <h4>Detalle del pedido:</h4>
+        <p class="m-b-5 m-t-10">
+          {{ dataComplete.solicitud }}
+        </p>
+        <br />
+        <h4>Comentarios:</h4>
+        <p class="m-b-5 m-t-10">
+          {{ dataComplete.comentarios }}
+        </p>
+        <br />
+        <h4>Información proveedor:</h4>
+        <p class="m-b-5 m-t-10">
+          <b>Proveedor: </b>
+          {{ dataComplete.rubro }}
+        </p>
+        <p class="m-b-5 m-t-10">
+          <b>Descripción: </b>
+          {{ dataComplete.descripcion }}
+        </p>
+        <p class="m-b-5 m-t-10">
+          <b>Observaciones: </b>
+          {{ dataComplete.observaciones }}
+        </p>
+
+        <br /><br />
+
+        <h4>Respuesta proveedor:</h4>
+
+        <p
+          *ngIf="rol === 1 || (rol === 3 && dataComplete.respuesta === null)"
+          class="m-b-5 m-t-10"
+        >
+          El proveedor <b> {{ dataComplete.rubro }} </b> aún no contesta esta
+          solicitud de pedido.
+        </p>
+
+        <div *ngIf="rol === 4 && dataComplete.respuesta === null">
+          <form
+            class="form-horizontal form-material"
+            autocomplete="off"
+            [formGroup]="form"
+            (ngSubmit)="responseVendor()"
+          >
+            <div class="form-group m-t-20">
+              <mat-label>Respuesta</mat-label>
+              <textarea
+                #activeElement
+                placeholder="Escriba aquí su respuesta..."
+                class="form-control text-area"
+                rows="5"
+                formControlName="respuesta"
+              ></textarea>
+            </div>
+            <button
+              type="button"
+              class="btn waves-effect waves-light btn-danger cancelar"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              class="btn waves-effect waves-light btn-info modificar"
+            >
+              Aceptar
+            </button>
+          </form>
+        </div>
+
+        <div *ngIf="rol === 4 && dataComplete.respuesta !== null">
+          {{ dataComplete.respuesta }}
+        </div>
+
+        <div
+          *ngIf="rol === 1 || (rol === 3 && dataComplete.respuesta !== null)"
+        >
+          {{ dataComplete.respuesta }}
+          <br /><br /><br />
+          <button
+            *ngIf="(rol === 1 || rol === 3 && dataComplete.respuesta !== null && dataComplete.estado === 'Pendiente')"
+            type="button"
+            class="btn waves-effect waves-light btn-danger cancelar"
+            (click)="rechazar()"
+          >
+            Rechazar
+          </button>
+          <button
+            *ngIf="
+              rol === 1 ||
+              (rol === 3 &&
+                dataComplete.respuesta !== null &&
+                dataComplete.estado === 'Pendiente')
+            "
+            type="submit"
+            class="btn waves-effect waves-light btn-info modificar"
+            (click)="aprobar()"
+          >
+            Aprobar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

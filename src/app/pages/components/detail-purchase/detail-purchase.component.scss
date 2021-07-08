@@ -1,0 +1,26 @@
+h4 {
+  text-decoration: underline;
+}
+
+b {
+  font-weight: 500;
+}
+
+.modificar {
+  float: right;
+  margin-right: 10px;
+}
+.cancelar {
+  float: right;
+}
+
+.text-area {
+  border: solid #73a8ed 2px;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.text-area:hover {
+  border: solid #357fe1 2px;
+  border-radius: 10px;
+}

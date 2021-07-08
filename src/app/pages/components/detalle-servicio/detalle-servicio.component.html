@@ -1,0 +1,149 @@
+<div class="card">
+  <div class="card-body">
+    <h4 class="card-title">
+      Slicitud de servicio para: {{ dataComplete.nombres }}
+    </h4>
+  </div>
+  <!-- ============================================================== -->
+  <!-- Comment widgets -->
+  <!-- ============================================================== -->
+  <div class="comment-widgets m-b-20">
+    <!-- Comment Row -->
+    <div class="d-flex flex-row comment-row">
+      <div class="p-2">
+        <span class="round"
+          ><img
+            src="../assets/images/avatars/avatar_1.png"
+            alt="user"
+            width="50"
+        /></span>
+      </div>
+      <div class="w-100">
+        <h5>Beneficiario: {{ dataComplete.nombres }}</h5>
+        <div class="comment-footer">
+          <span class="date">Fecha de solicitud: 07/07/2021</span>
+          <br />
+          <br />
+          <h5>Estado:</h5>
+          <span
+            *ngIf="dataComplete.estado === 'Pendiente'"
+            class="label label-info"
+            >Pendiente</span
+          >
+          <span
+            *ngIf="dataComplete.estado === 'Aprobado'"
+            class="label label-success"
+            >Aprobado</span
+          >
+          <span
+            *ngIf="dataComplete.estado === 'Rechazado'"
+            class="label label-danger"
+            >Rechazado</span
+          >
+        </div>
+        <br />
+        <h4>Detalle de la solicitud:</h4>
+        <p class="m-b-5 m-t-10">
+          {{ dataComplete.tipo_solicitud }}
+        </p>
+        <br />
+        <h4>Rango de tiempo servicios:</h4>
+        <p class="m-b-5 m-t-10">
+          Feca inicio servicios {{ dataComplete.fecha_inicio }} Fecha termino
+          servicios {{ dataComplete.fecha_termino }}
+        </p>
+        <br />
+        <h4>Información solicitante:</h4>
+        <p class="m-b-5 m-t-10">
+          <b>Empresa: </b>
+          {{ dataComplete.nombre_empresa }}
+        </p>
+        <p class="m-b-5 m-t-10">
+          <b>Dirección empresa: </b>
+          {{ dataComplete.direccion_empresa }}
+        </p>
+        <p class="m-b-5 m-t-10">
+          <b>Correo empresa: </b>
+          {{ dataComplete.correo_empresa }}
+        </p>
+
+        <br /><br />
+
+        <h4>Respuesta administración hostal:</h4>
+
+        <p class="m-b-5 m-t-10">
+          La administración del hostal aún no responde a esta solicitud.
+        </p>
+
+        <div *ngIf="rol === 4 && dataComplete.respuesta === null">
+          <form
+            class="form-horizontal form-material"
+            autocomplete="off"
+            [formGroup]="form"
+            (ngSubmit)="responseVendor()"
+          >
+            <div class="form-group m-t-20">
+              <mat-label>Respuesta</mat-label>
+              <textarea
+                #activeElement
+                placeholder="Escriba aquí su respuesta..."
+                class="form-control text-area"
+                rows="5"
+                formControlName="respuesta"
+              ></textarea>
+            </div>
+            <button
+              type="button"
+              class="btn waves-effect waves-light btn-danger cancelar"
+            >
+              Cancelar
+            </button>
+            <button
+              type="submit"
+              class="btn waves-effect waves-light btn-info modificar"
+            >
+              Aceptar
+            </button>
+          </form>
+        </div>
+
+        <div *ngIf="rol === 4 && dataComplete.respuesta !== null">
+          {{ dataComplete.respuesta }}
+        </div>
+
+        <div
+          *ngIf="rol === 1 || (rol === 3 && dataComplete.respuesta !== null)"
+        >
+          {{ dataComplete.respuesta }}
+          <br /><br /><br />
+          <button
+            *ngIf="
+              rol === 1 ||
+              (rol === 3 &&
+                dataComplete.respuesta !== null &&
+                dataComplete.estado === 'Pendiente')
+            "
+            type="button"
+            class="btn waves-effect waves-light btn-danger cancelar"
+            (click)="rechazar()"
+          >
+            Rechazar
+          </button>
+          <button
+            *ngIf="
+              rol === 1 ||
+              (rol === 3 &&
+                dataComplete.respuesta !== null &&
+                dataComplete.estado === 'Pendiente')
+            "
+            type="submit"
+            class="btn waves-effect waves-light btn-info modificar"
+            (click)="aprobar()"
+          >
+            Aprobar
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

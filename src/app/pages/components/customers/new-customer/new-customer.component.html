@@ -1,0 +1,117 @@
+<h3>Crear nuevo cliente</h3>
+
+<section id="wrapper" class="login-register login-sidebar img">
+  <div class="login-box card">
+    <div class="card-body">
+      <form
+        class="form-horizontal form-material"
+        autocomplete="off"
+        [formGroup]="form"
+        (ngSubmit)="createUser()"
+      >
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="rutNoValido"
+              autocomplete="new-rut"
+              formControlName="rut"
+              class="form-control"
+              type="text"
+              placeholder="Rut"
+            />
+            <small *ngIf="rutNoValido" class="message-error"
+              >Error en formato rut ej: 18.922.223-1
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="nombreNoValido"
+              autocomplete="new-nombres"
+              formControlName="razon_social"
+              class="form-control"
+              type="text"
+              placeholder="Razón social"
+            />
+            <small *ngIf="nombreNoValido" class="message-error">
+              5 carácteres como mínimo.
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="apellidosNoValido"
+              autocomplete="new-apellidos"
+              formControlName="giro_comercial"
+              class="form-control"
+              type="text"
+              placeholder="Giro comercial"
+            />
+            <small *ngIf="apellidosNoValido" class="message-error">
+              5 carácteres como mínimo.
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="nombreNoValido"
+              autocomplete="new-nombres"
+              formControlName="direccion"
+              class="form-control"
+              type="text"
+              placeholder="Dirección"
+            />
+            <small *ngIf="nombreNoValido" class="message-error">
+              5 carácteres como mínimo.
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="telefonoNoValido"
+              autocomplete="new-telefono"
+              formControlName="telefono"
+              class="form-control"
+              type="text"
+              placeholder="Telefono"
+            />
+            <small *ngIf="apellidosNoValido" class="message-error">
+              Formato inválido.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="correoNoValido"
+              autocomplete="new-correo"
+              formControlName="correo"
+              class="form-control"
+              type="text"
+              placeholder="Correo electrónico"
+            />
+            <small *ngIf="correoNoValido" class="message-error">
+              Correo inválido.
+            </small>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="btn waves-effect waves-light btn-danger cancelar"
+        >
+          Cancelar
+        </button>
+        <button
+          type="submit"
+          class="btn waves-effect waves-light btn-info modificar"
+        >
+          Agregar
+        </button>
+      </form>
+    </div>
+  </div>
+</section>

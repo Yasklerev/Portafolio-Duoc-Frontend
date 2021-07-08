@@ -1,0 +1,170 @@
+<section id="wrapper" class="login-register login-sidebar img">
+  <div class="login-box card">
+    <div class="card-body">
+      <form
+        class="form-horizontal form-material"
+        autocomplete="off"
+        [formGroup]="form"
+        (ngSubmit)="createUser()"
+      >
+        <a href="javascript:void(0)" class="text-center db"
+          ><img
+            class="img-logo"
+            src="../assets/images/logo_web.png"
+            alt="Home" /><br
+        /></a>
+        <h3 class="box-title m-t-0 m-b-0">Registrarse</h3>
+        <small>Regístrate y podrás ingresar a Hostal Doña Clarita</small>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="rutNoValido"
+              autocomplete="off"
+              formControlName="rut"
+              class="form-control"
+              type="text"
+              placeholder="Rut"
+            />
+            <small *ngIf="rutNoValido" class="message-error"
+              >Error en formato rut ej: 18.922.223-1
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="nombreNoValido"
+              autocomplete="off"
+              formControlName="nombres"
+              class="form-control"
+              type="text"
+              placeholder="Nombres"
+            />
+            <small *ngIf="nombreNoValido" class="message-error">
+              5 carácteres como mínimo.
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="apellidosNoValido"
+              autocomplete="off"
+              formControlName="apellidos"
+              class="form-control"
+              type="text"
+              placeholder="Apellidos"
+            />
+            <small *ngIf="apellidosNoValido" class="message-error">
+              5 carácteres como mínimo.
+            </small>
+          </div>
+        </div>
+        <div class="form-group m-t-20">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="telefonoNoValido"
+              autocomplete="off"
+              formControlName="telefono"
+              class="form-control"
+              type="text"
+              placeholder="Telefono"
+            />
+            <small *ngIf="apellidosNoValido" class="message-error">
+              Formato inválido.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="correoNoValido"
+              autocomplete="off"
+              formControlName="correo"
+              class="form-control"
+              type="text"
+              placeholder="Correo electrónico"
+            />
+            <small *ngIf="correoNoValido" class="message-error">
+              Correo inválido.
+            </small>
+          </div>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field appearance="fill">
+            <input
+              [class.form-control-danger]="fechaNacNoValido"
+              autocomplete="off"
+              formControlName="fecha_nacimiento"
+              class="form-control"
+              type="text"
+              placeholder="Fecha nacimiento"
+              matInput
+              [matDatepicker]="dp3"
+              disabled
+            />
+            <mat-datepicker-toggle
+              matSuffix
+              [for]="dp3"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #dp3 disabled="false"></mat-datepicker>
+          </mat-form-field>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="passwordNoValido"
+              autocomplete="off"
+              formControlName="password"
+              class="form-control"
+              type="password"
+              placeholder="Contraseña"
+            />
+            <small *ngIf="passwordNoValido" class="message-error">
+              Contraseña obligatoria.
+            </small>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <input
+              [class.form-control-danger]="password2NoValido"
+              autocomplete="off"
+              formControlName="password2"
+              class="form-control"
+              type="password"
+              placeholder="Confirmar contraseña"
+            />
+            <small *ngIf="password2NoValido" class="message-error">
+              Contraseña obligatoria.
+            </small>
+          </div>
+        </div>
+        <div class="form-group text-center m-t-20">
+          <div class="col-xs-12">
+            <button
+              class="
+                btn btn-info btn-lg btn-block
+                text-uppercase
+                waves-effect waves-light
+              "
+              type="submit"
+            >
+              Registrarse
+            </button>
+          </div>
+        </div>
+        <div class="form-group m-b-0">
+          <div class="col-sm-12 text-center">
+            <p>
+              ¿Ya tienes una cuenta?
+              <a routerLink="/login" class="text-info m-l-5"
+                ><b>Iniciar sesión</b></a
+              >
+            </p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

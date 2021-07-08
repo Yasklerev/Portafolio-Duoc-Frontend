@@ -1,0 +1,62 @@
+.la_x {
+  float: right;
+  font-weight: bold;
+  color: red;
+  margin-right: calc(100% - 250px);
+  margin-bottom: -100px !important;
+  margin-top: 10px;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+}
+
+.new {
+  float: right;
+  margin-right: 20px;
+  margin-top: -30px;
+  margin-bottom: 10px;
+}
+
+.select {
+  width: 90%;
+  margin-left: 5%;
+}
+
+.upload-btn {
+  color: white;
+  background-color: #1b5faa;
+  margin-left: 20px;
+}
+
+.Sendupload {
+  margin-left: 20px;
+}
+
+.file-input {
+  display: none;
+}
+
+.table-size {
+  margin-top: 10px;
+  overflow-y: scroll;
+}
+
+.card-body {
+  padding: 0px !important;
+}
+
+.left {
+  float: left;
+  width: 100%;
+  margin-left: 0px !important;
+  padding-left: 0px !important;
+}
+
+.title-data {
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+
+.right {
+  float: left;
+  width: 100%;
+}
